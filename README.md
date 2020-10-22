@@ -1,2 +1,2 @@
-# spring-vue
+# spring-graphql-vue
 CRUD Spring VueJS
