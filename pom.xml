@@ -3,15 +3,13 @@
     xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>br.ucb.keyth</groupId>
     <artifactId>imoveis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    
     <packaging>pom</packaging>
-    
+
     <name>imoveis</name>
     <description>Spring Boot, GraphQL, VueJS</description>
     
@@ -28,30 +26,15 @@
         <build-plugin.jacoco.version>0.8.6</build-plugin.jacoco.version>
         <build-plugin.coveralls.version>4.3.0</build-plugin.coveralls.version>
     </properties>
-    
+
+
     <modules>
         <module>frontend</module>
         <module>backend</module>
     </modules>
-    
     <build>
         <plugins>
 			
-			<plugin>
-				<inherited>true</inherited>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>   
-				<version>3.8.0</version>
-			</plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <release>11</release>
-                    <source>11</source>
-                    <traget>11</traget>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>

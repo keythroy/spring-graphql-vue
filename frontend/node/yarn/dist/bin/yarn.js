@@ -4,51 +4,26 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 'use strict';
 
-// init roadrunner
-var mkdirp = require('mkdirp');
-var constants = require('../lib-legacy/constants');
-mkdirp.sync(constants.GLOBAL_INSTALL_DIRECTORY);
-var roadrunner = require('roadrunner');
-roadrunner.load(constants.CACHE_FILENAME);
-roadrunner.setup(constants.CACHE_FILENAME);
-
-// get node version
-var semver = require('semver');
 var ver = process.versions.node;
-ver = ver.split('-')[0]; // explode and truncate tag from version #511
+var majorVer = parseInt(ver.split('.')[0], 10);
 
-var possibles = [];
-var found = false;
-var _err;
-
-if (semver.satisfies(ver, '>=5.0.0')) {
-  possibles.push('../updates/current/lib/cli/index.js');
-  possibles.push('../lib/cli/index.js');
-} else if (semver.satisfies(ver, '>=4.0.0')) {
-  possibles.push('../updates/current/lib-legacy/cli/index.js');
-  possibles.push('../lib-legacy/cli/index.js');
+if (majorVer < 4) {
+  console.error('Node version ' + ver + ' is not supported, please use Node.js 4.0 or higher.');
+  process.exit(1); // eslint-disable-line no-process-exit
 } else {
-  console.log(require('chalk').red('Node version ' + ver + ' is not supported, please use Node.js 4.0 or higher.'));
-  process.exit(1);
-}
-
-var i = 0;
-for (; i < possibles.length; i++) {
-  var possible = possibles[i];
-  try {
-    module.exports = require(possible);
-    found = true;
-    break;
-  } catch (err) {
-    if (err.code === 'MODULE_NOT_FOUND') {
-      _err = err;
-      continue;
-    } else {
-      throw err;
-    }
+  var dirPath = '../lib/';
+  var v8CompileCachePath = dirPath + 'v8-compile-cache';
+  var fs = require('fs');
+  // We don't have/need this on legacy builds and dev builds
+  if (fs.existsSync(v8CompileCachePath)) {
+    require(v8CompileCachePath);
   }
-}
 
-if (!found) {
-  throw _err || new Error('Failed to load');
+  // Just requiring this package will trigger a yarn run since the
+  // `require.main === module` check inside `cli/index.js` will always
+  // be truthy when built with webpack :(
+  var cli = require(dirPath + 'cli');
+  if (!cli.autoRun) {
+    cli.default();
+  }
 }
