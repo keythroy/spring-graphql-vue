@@ -17,3 +17,4 @@ mvn --projects backend spring-boot:run
 
 Now go to http://localhost:8098/ and have a look at your first Vue.js Spring Boot App.
 
+http://localhost:8089/gui -> api GUI
