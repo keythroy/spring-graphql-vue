@@ -16,7 +16,7 @@ public class Imovel {
     @Column(name = "logradouro", nullable = false)
 	private String logradouro;
     
-    @Column(name = "complento", nullable = false)
+    @Column(name = "complemento", nullable = false)
 	private String complemento;
     
     @Column(name = "bairro", nullable = false)
