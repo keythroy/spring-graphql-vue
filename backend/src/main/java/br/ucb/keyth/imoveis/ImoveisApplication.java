@@ -1,18 +1,19 @@
 package br.ucb.keyth.imoveis;
 
-import br.ucb.keyth.imoveis.service.ImovelService;
-
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import br.ucb.keyth.imoveis.services.ImovelService;
+
+
 @SpringBootApplication
 public class ImoveisApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ImoveisApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ImoveisApplication.class, args);
+    }
 
     @Bean
     ApplicationRunner init(ImovelService ImovelService) {
@@ -26,4 +27,6 @@ public class ImoveisApplication {
             // ImovelService.getCars().forEach(System.out::println);
         };
     }
+
+
 }

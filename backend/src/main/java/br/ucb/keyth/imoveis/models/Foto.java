@@ -20,20 +20,6 @@ public class Foto {
     @Column(name = "caminho", nullable = false)
 	private String caminho;	
 
-	public Foto() {
-		
-	}
-	
-    public Foto(int id) {
-    	this.id = id;
-    }
-    
-	public Foto(Imovel imovel, String nome, String caminho) {
-		this.setImovel(imovel);
-		this.setNome(nome);
-		this.setCaminho(caminho);
-	}
-	
 	public int getId() {
 		return id;
 	}

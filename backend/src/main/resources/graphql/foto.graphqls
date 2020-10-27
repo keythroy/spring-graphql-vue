@@ -1,0 +1,12 @@
+type Foto {
+   id: int!
+   imovel: Imovel!
+   nome: String!
+   caminho: String!	
+}
+
+input FotoInput {
+   imovel: Imovel!
+   nome: String!
+   caminho: String!	
+}

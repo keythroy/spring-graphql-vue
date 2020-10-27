@@ -1,4 +1,4 @@
-package br.ucb.keyth.imoveis.model;
+package br.ucb.keyth.imoveis.models;
 
 import javax.persistence.*;
 
@@ -16,7 +16,7 @@ public class Imovel {
     @Column(name = "logradouro", nullable = false)
 	private String logradouro;
     
-    @Column(name = "complemento", nullable = false)
+    @Column(name = "complento", nullable = false)
 	private String complemento;
     
     @Column(name = "bairro", nullable = false)
@@ -33,28 +33,7 @@ public class Imovel {
     
     @Column(name = "area_util", nullable = false)
 	private float area;
-    
-    public Imovel() {
-    }
-    
-    public Imovel(int id) {
-    	this.id = id;
-    }
 	
-	public Imovel(int cep, String logradouro,
-			String complemento, String bairro, String cidade,
-			String uf, int quartos, float area) {
-		
-		this.setCep(cep);
-		this.setLogradouro(logradouro);
-		this.setComplemento(complemento);
-		this.setBairro(bairro);
-		this.setCidade(cidade);
-		this.setUf(uf);
-		this.setQuartos(quartos);
-		this.setArea(area);
-	}
-
 	public int getId() {
 		return id;
 	}

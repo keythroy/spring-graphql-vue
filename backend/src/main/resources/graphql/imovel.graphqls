@@ -1,0 +1,23 @@
+type Imovel {
+    id: Int!,
+    cep: Long!
+    logradouro: String!
+    complento: String!    
+    bairro: String!    
+    cidade: String!    
+    uf: String!    
+    quartos: int!    
+    area_util: float!
+    fotos: [foto]
+}
+
+input ImovelInput {
+    cep: Long!
+    logradouro: String!
+    complento: String!    
+    bairro: String!    
+    cidade: String!    
+    uf: String!    
+    quartos: int!    
+    area_util: float!
+}

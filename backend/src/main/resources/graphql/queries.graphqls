@@ -1,0 +1,12 @@
+type Query {
+    imoveis: [Imovel]!
+    imovel(id: Int!): Imovel!
+    imovelFotos(id: Int!): [Fotos]!
+    fotos: [Foto]!
+    foto(id: Int!): Foto!
+}
+
+type Mutation {
+    createImovel(imovel: imovelInpout!): Book
+    createFoto(foto: Foto!): Foto
+}
