@@ -5,6 +5,7 @@ import store from './../store';
 import Main from './../pages/Main';
 import Login from './../pages/Login';
 import Register from './../pages/Register';
+import Imoveis from './../pages/Imoveis';
 
 import Blank from './../pages/Blank';
 import Dashboard from './../pages/Dashboard';
@@ -13,45 +14,48 @@ import Profile from './../pages/Profile';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
-  routes: [
-    {
-      path: '/',
-      component: Main,
-      beforeEnter(to, from, next) {
-        if (store.state.token) {
-          next();
-        } else {
-          next();
-        }
-      },
-      children: [
-        { path: '/blank', component: Blank },
-        { path: 'profile', component: Profile },
-        { path: '/', component: Dashboard }
-      ]
-    },
-    {
-      path: '/login',
-      component: Login,
-      beforeEnter(to, from, next) {
-        if (store.state.token) {
-          next('/');
-        } else {
-          next();
-        }
-      }
-    },
-    {
-      path: '/register',
-      component: Register,
-      beforeEnter(to, from, next) {
-        if (store.state.token) {
-          next('/');
-        } else {
-          next();
-        }
-      }
-    }
-  ]
+    mode: 'history',
+    routes: [{
+            path: '/',
+            component: Main,
+            beforeEnter(to, from, next) {
+                if (store.state.token) {
+                    next();
+                } else {
+                    next();
+                }
+            },
+            children: [
+                { path: '/blank', component: Blank },
+                { path: 'profile', component: Profile },
+                { path: 'dashbooard', component: Dashboard },
+            ]
+        },
+        {
+            path: '/login',
+            component: Login,
+            beforeEnter(to, from, next) {
+                if (store.state.token) {
+                    next('/');
+                } else {
+                    next();
+                }
+            }
+        },
+        {
+            path: '/register',
+            component: Register,
+            beforeEnter(to, from, next) {
+                if (store.state.token) {
+                    next('/');
+                } else {
+                    next();
+                }
+            },
+            children: [
+                { path: 'imoveis', component: Imoveis },
+                { path: '/', component: Imoveis }
+            ]
+        },
+    ]
 });
