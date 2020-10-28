@@ -16,7 +16,7 @@ Vue.use(Router);
 export default new Router({
     mode: 'history',
     routes: [{
-            path: '/',
+            path: '/blank',
             component: Main,
             beforeEnter(to, from, next) {
                 if (store.state.token) {
@@ -43,8 +43,8 @@ export default new Router({
             }
         },
         {
-            path: '/register',
-            component: Register,
+            path: '/',
+            component: Imoveis,
             beforeEnter(to, from, next) {
                 if (store.state.token) {
                     next('/');
@@ -53,6 +53,7 @@ export default new Router({
                 }
             },
             children: [
+                { path: 'register', component: Register },
                 { path: 'imoveis', component: Imoveis },
                 { path: '/', component: Imoveis }
             ]

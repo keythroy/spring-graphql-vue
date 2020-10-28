@@ -6,21 +6,14 @@
 
     <div class="card">
       <div class="card-body register-card-body">
-        <img src="./../../assets/img/logo_imoveis.png" alt="" />
+        <img
+          src="../assets/img/logo-imoveis-s-nome.png"
+          alt=""
+          class="img-thumbnail"
+          style="border: 0px"
+        />
 
         <form></form>
-
-        <div class="social-auth-links text-center">
-          <p>- YA DA -</p>
-          <a href="#" class="btn btn-block btn-primary">
-            <i class="fa fa-facebook mr-2"></i>
-            Facebook ile kayıt ol
-          </a>
-        </div>
-
-        <router-link to="login" class="text-center"
-          >Zaten bir hesabım var.</router-link
-        >
       </div>
       <!-- /.form-box -->
     </div>
