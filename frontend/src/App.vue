@@ -3,10 +3,9 @@
 </template>
 
 <script>
-
 export default {
   name: "app",
-  components: {}
+  components: {},
 };
 </script>
 <style>
