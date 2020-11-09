@@ -1,0 +1,21 @@
+type Imovel {
+    id: Int
+    cep: Int
+    logradouro: String
+    complemento: String    
+    bairro: String    
+    cidade: String    
+    uf: String    
+    quartos: int    
+    areaUtil: float
+    fotos: [foto]
+}
+
+input ImovelInput {
+    cep: Int
+    uf: String
+    cidade: String
+    bairro: String
+    quartos: int   
+    areaUtil: float
+}
