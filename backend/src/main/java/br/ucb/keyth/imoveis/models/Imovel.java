@@ -4,40 +4,41 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "imovel")
-public class Imovel {	
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+public class Imovel {
 
-    @Column(name = "cep", nullable = false)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id", insertable=false, updatable=false, unique=true, nullable=true)
+	private int id;
+
+	@Column(name = "cep", nullable = false)
 	private int cep;
-    
-    @Column(name = "logradouro", nullable = false)
+
+	@Column(name = "logradouro", nullable = false)
 	private String logradouro;
-    
-    @Column(name = "complemento", nullable = false)
+
+	@Column(name = "complemento", nullable = false)
 	private String complemento;
-    
-    @Column(name = "bairro", nullable = false)
+
+	@Column(name = "bairro", nullable = false)
 	private String bairro;
-    
-    @Column(name = "cidade", nullable = false)
+
+	@Column(name = "cidade", nullable = false)
 	private String cidade;
-    
-    @Column(name = "uf", nullable = false)
+
+	@Column(name = "uf", nullable = false)
 	private String uf;
-    
-    @Column(name = "quartos", nullable = false)
+
+	@Column(name = "quartos", nullable = false)
 	private int quartos;
-    
-    @Column(name = "area_util", nullable = false)
-	private float area;
-	
+
+	@Column(name = "area_util", nullable = false)
+	private float areaUtil;
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public int getCep() {
 		return cep;
 	}
@@ -94,20 +95,16 @@ public class Imovel {
 		this.quartos = quartos;
 	}
 
-	public float getArea() {
-		return area;
+	public float getAreaUtil() {
+		return areaUtil;
 	}
 
-	public void setArea(float area) {
-		this.area = area;
+	public void setAreaUtil(float areaUtil) {
+		this.areaUtil = areaUtil;
 	}
-	
+
 	@Override
 	public String toString() {
-	    return "Imovel{" +
-	            ", id='" + id + '\'' +
-	            ", cep=" + cep +
-	            '}';
+		return "Imovel{" + ", id='" + id + '\'' + ", cep=" + cep + '}';
 	}
 }
-	

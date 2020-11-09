@@ -35,7 +35,7 @@ public class ImovelService {
     }
 
     @GraphQLMutation(name = "salvarImovel")
-    public Imovel saveImovel(@GraphQLArgument(name = "imovel") Imovel imovel) {
+    public Imovel saveImovel(@GraphQLArgument(name = "ImovelInput") Imovel imovel) {
         return repo.save(imovel);
     }
 
