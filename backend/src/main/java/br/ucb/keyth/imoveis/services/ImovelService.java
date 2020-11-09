@@ -1,6 +1,5 @@
 package br.ucb.keyth.imoveis.services;
 
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,8 +8,10 @@ import br.ucb.keyth.imoveis.repositories.ImovelRepository;
 import io.leangen.graphql.annotations.GraphQLArgument;
 import io.leangen.graphql.annotations.GraphQLMutation;
 import io.leangen.graphql.annotations.GraphQLQuery;
+import org.springframework.stereotype.Service;
 import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
 import br.ucb.keyth.imoveis.models.Imovel;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 @Service
 @GraphQLApi
