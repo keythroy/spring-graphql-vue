@@ -11,18 +11,15 @@ import io.leangen.graphql.annotations.GraphQLQuery;
 import org.springframework.stereotype.Service;
 import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
 import br.ucb.keyth.imoveis.models.Imovel;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 @Service
 @GraphQLApi
 public class ImovelService {
 
     private final ImovelRepository repo;
-    //private final FotoService fotoService;
 
     public ImovelService(ImovelRepository repo) {
         this.repo = repo;
-      //  this.fotoService = fotoService;
     }
 
     @GraphQLQuery(name = "imoveis")
@@ -37,6 +34,10 @@ public class ImovelService {
 
     @GraphQLMutation(name = "salvarImovel")
     public Imovel saveImovel(@GraphQLArgument(name = "ImovelInput") Imovel imovel) {
+
+        // Imovel teste = new Imovel();
+        // teste.setCep(123782);
+        // teste.setCidade("aslkdjsa");
         return repo.save(imovel);
     }
 
@@ -53,7 +54,7 @@ public class ImovelService {
     //             !Imovel.getName().equals("Yugo GV");
     // }
 
-    // @GraphQLQuery(name = "giphyUrl")
+    // @GraphQLQuery(name = "giphyUrl")""
     // public String getGiphyUrl(@GraphQLContext Imovel Imovel) {
     //     return giphyService.getGiphyUrl(Imovel.getName());
     // }

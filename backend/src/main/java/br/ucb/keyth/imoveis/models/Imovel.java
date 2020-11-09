@@ -5,22 +5,21 @@ import javax.persistence.*;
 @Entity
 @Table(name = "imovel")
 public class Imovel {
-
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id", insertable=false, updatable=false)
 	private int id;
 
-	@Column(name = "cep", nullable = false)
+	@Column(name = "cep", nullable = true)
 	private int cep;
 
-	@Column(name = "logradouro", nullable = false)
+	@Column(name = "logradouro", nullable = true)
 	private String logradouro;
 
-	@Column(name = "complemento", nullable = false)
+	@Column(name = "complemento", nullable = true)
 	private String complemento;
 
-	@Column(name = "bairro", nullable = false)
+	@Column(name = "bairro", nullable = true)
 	private String bairro;
 
 	@Column(name = "cidade", nullable = false)
@@ -35,6 +34,9 @@ public class Imovel {
 	@Column(name = "area_util", nullable = false)
 	private float areaUtil;
 
+	public Imovel(){
+
+	}
 	public int getId() {
 		return id;
 	}
